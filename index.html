@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nelson García | Construcción & Servicios Integrales</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #0b0f17;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .text-gold {
+      background: linear-gradient(135deg, #f7e7ad 0%, #d4af37 50%, #a27c12 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(11, 15, 23, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1rem 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #94a3b8;
+    }
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+    .btn-whatsapp-nav {
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      color: #d4af37;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+    }
+    .btn-whatsapp-nav:hover {
+      background-color: #d4af37;
+      color: #000;
+    }
+
+    /* Hero / Portada */
+    .hero {
+      padding: 2.5rem 1.5rem 4rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-card-container {
+      max-width: 650px;
+      margin: 0 auto 2rem auto;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 30px rgba(212, 175, 55, 0.15);
+      background-color: #131924;
+      transition: transform 0.4s ease;
+    }
+    .hero-card-container:hover {
+      transform: translateY(-4px);
+    }
+    .hero-card-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Strip de Íconos de Servicios */
+    .services-strip {
+      margin: 2.5rem 0;
+      padding: 2rem 1rem;
+      background-color: rgba(19, 25, 36, 0.7);
+      border-radius: 1.25rem;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .services-strip-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .icons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 1.25rem;
+    }
+    .icon-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 0.85rem;
+      background-color: #0b0f17;
+      border: 1px solid #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4af37;
+      font-size: 1.3rem;
+      transition: all 0.3s;
+    }
+    .icon-card:hover .icon-box {
+      border-color: #d4af37;
+      transform: translateY(-3px);
+    }
+    .icon-label {
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin: 0 auto 2rem auto;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+    .btn-main {
+      background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+      color: #000;
+      font-weight: 700;
+      padding: 1rem 2.25rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+      transition: filter 0.3s;
+    }
+    .btn-main:hover {
+      filter: brightness(1.15);
+    }
+
+    /* Galería de Proyectos */
+    .portfolio-section {
+      padding: 5rem 1.5rem;
+      background-color: rgba(19, 25, 36, 0.4);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .portfolio-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #d4af37;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-top: 0.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background-color: #131924;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, 0.6);
+    }
+    .img-wrapper {
+      height: 240px;
+      width: 100%;
+      overflow: hidden;
+      background-color: #0b0f17;
+      position: relative;
+    }
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+    .project-info {
+      padding: 1.25rem;
+    }
+    .project-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    .project-info p {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 0.35rem;
+      font-weight: 300;
+    }
+
+    /* Footer / Contacto */
+    .footer {
+      padding: 4rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+    .contact-card {
+      background-color: #131924;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      max-width: 420px;
+      margin: 1.5rem auto 2.5rem auto;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+    .phone-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 0.5rem 0;
+    }
+    .btn-whatsapp-footer {
+      background-color: #10b981;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.85rem 1.5rem;
+      border-radius: 0.75rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    .btn-whatsapp-footer:hover {
+      background-color: #059669;
+    }
+    .copyright {
+      font-size: 0.75rem;
+      color: #475569;
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background-color: #10b981;
+      color: #fff;
+      width: 52px;
+      height: 52px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      z-index: 99;
+      transition: transform 0.3s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="text-gold" style="font-size: 1.2rem;">NELSON GARCÍA</div>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <a href="https://wa.me/50370074934?text=Hola%20Nelson,%20deseo%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" class="btn-whatsapp-nav">
+        <i class="fa-brands fa-whatsapp"></i> 7007-4934
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section con la Tarjeta Dorada de Portada -->
+  <section id="inicio" class="hero">
+    
+    <div class="hero-card-container">
+      <img src="portada.jpg" 
+           onerror="this.onerror=null; this.src='portada.jpeg'; if(!this.complete) this.src='portada.png';" 
+           alt="Nelson García - Construcción y Servicios Integrales" 
+           class="hero-card-img">
+    </div>
+
+    <!-- Tira de Íconos de Especialidades -->
+    <div id="servicios" class="services-strip">
+      <p class="services-strip-title">Especialidades Técnicas</p>
+      
+      <div class="icons-grid">
+        <div class="icon-card">
+          <div class="icon-box"><i class="fa-solid fa-trowel-bricks"></i></div>
+          <span class="icon-label">Albañilería</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+          <span class="icon-label">Electricidad</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-box"><i class="fa-solid fa-faucet-drip"></i></div>
+          <span class="icon-label">Fontanería</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-box"><i class="fa-solid fa-border-all"></i></div>
+          <span class="icon-label">Tabla Roca</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-box"><i class="fa-solid fa-grip"></i></div>
+          <span class="icon-label">Cielo Falso</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-box"><i class="fa-solid fa-layer-group"></i></div>
+          <span class="icon-label">Estructuras</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-box"><i class="fa-solid fa-tree"></i></div>
+          <span class="icon-label">Jardinería</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="hero-description">
+      Ejecución profesional de proyectos de construcción, remodelación e infraestructura técnica. Calidad garantizada, solidez estructural y atención personalizada.
+    </p>
+
+    <a href="https://wa.me/50370074934?text=Hola%20Nelson,%20deseo%20solicitar%20una%20visita" target="_blank" class="btn-main">
+      <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Solicitar Evaluación por WhatsApp
+    </a>
+  </section>
+
+  <!-- Galería de Proyectos Reales -->
+  <section id="proyectos" class="portfolio-section">
+    <div class="portfolio-container">
+      <span class="section-tag">Portafolio</span>
+      <h2 class="section-title">Obras Ejecutadas</h2>
+
+      <div class="gallery-grid">
+        
+        <!-- Foto 1 -->
+        <div class="project-card">
+          <div class="img-wrapper">
+            <img src="foto1.jpg" onerror="this.onerror=null; this.src='foto1.jpeg';" alt="Portón metálico con enchapado en piedra">
+          </div>
+          <div class="project-info">
+            <h3>Portón Residencial & Piedra</h3>
+            <p>Estructura metálica reforzada con columnas revestidas en piedra decorativa.</p>
+          </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="project-card">
+          <div class="img-wrapper">
+            <img src="foto2.jpg" onerror="this.onerror=null; this.src='foto2.jpeg';" alt="Cierre perimetral de malla">
+          </div>
+          <div class="project-info">
+            <h3>Cerramientos & Malla Perimetral</h3>
+            <p>Instalación de malla con marco metálico soldado sobre muro de piedra.</p>
+          </div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="project-card">
+          <div class="img-wrapper">
+            <img src="foto3.jpg" onerror="this.onerror=null; this.src='foto3.jpeg';" alt="Concreto rústico en patio">
+          </div>
+          <div class="project-info">
+            <h3>Pisos & Niveles de Concreto</h3>
+            <p>Vaciado y nivelación de concreto antideslizante para estacionamiento y accesos.</p>
+          </div>
+        </div>
+
+        <!-- Foto 4 -->
+        <div class="project-card">
+          <div class="img-wrapper">
+            <img src="foto4.jpg" onerror="this.onerror=null; this.src='foto4.jpeg';" alt="Remodelación de casa">
+          </div>
+          <div class="project-info">
+            <h3>Remodelación Arquitectónica</h3>
+            <p>Acondicionamiento de exteriores, techados y estructuras de soporte.</p>
+          </div>
+        </div>
+
+        <!-- Foto 5 -->
+        <div class="project-card">
+          <div class="img-wrapper">
+            <img src="foto5.jpg" onerror="this.onerror=null; this.src='foto5.jpeg';" alt="Portón de acceso secundario">
+          </div>
+          <div class="project-info">
+            <h3>Estructuras Metálicas Secundarias</h3>
+            <p>Portones de malla reforzada para delimitación de áreas y accesos.</p>
+          </div>
+        </div>
+
+        <!-- Foto 6 -->
+        <div class="project-card">
+          <div class="img-wrapper">
+            <img src="foto6.jpg" onerror="this.onerror=null; this.src='foto6.jpeg';" alt="Cerrajería y cerradura de seguridad">
+          </div>
+          <div class="project-info">
+            <h3>Cerrajería de Alta Seguridad</h3>
+            <p>Ajuste, soldadura e instalación de cerraduras blindadas en puertas y portones.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto / Footer -->
+  <footer id="contacto" class="footer">
+    <span class="section-tag">Atención Personalizada</span>
+    <h2 style="font-size: 2rem; color: #f8fafc; margin-top: 0.25rem;">Cotiza tu Proyecto</h2>
+    
+    <div class="contact-card">
+      <p style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;">Contacto Directo</p>
+      <div class="phone-number text-gold">7007-4934</div>
+      <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 1.5rem;">Llamadas y WhatsApp disponibles.</p>
+      
+      <a href="https://wa.me/50370074934?text=Hola%20Nelson,%20quiero%20cotizar" target="_blank" class="btn-whatsapp-footer">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Iniciar Chat de WhatsApp
+      </a>
+    </div>
+
+    <p class="copyright">&copy; 2026 Nelson García - Construcción y Servicios Integrales.</p>
+  </footer>
+
+  <!-- Botón Flotante -->
+  <a href="https://wa.me/50370074934?text=Hola%20Nelson,%20deseo%20consultar" target="_blank" class="whatsapp-float">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>
